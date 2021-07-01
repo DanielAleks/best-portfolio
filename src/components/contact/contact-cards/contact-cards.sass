@@ -1,0 +1,207 @@
+.contact-cards-container
+  display: flex
+  position: relative
+  align-items: flex-start
+  justify-content: flex-start
+  height: 100vh
+
+.cards-inner-container
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  flex-direction: row
+  justify-content: flex-end
+  align-items: flex-start
+  width: 100%
+  height: 100vh
+  flex-wrap: wrap
+  display: flex
+  margin: 0px
+  @media (min-width: 1700px)
+    padding-right: 5%
+  div
+    margin-top: 3rem
+    margin-bottom: 3rem
+
+.cards-innermost-container
+  display: flex
+  height: 100vh
+  justify-content: center
+  flex-direction: column
+  align-items: flex-end
+  margin-right: 20rem
+  flex-wrap: wrap
+  justify-content: center
+  width: 130rem
+  @media (max-width: 1200px)
+    margin-right: 10rem
+  @media (max-height: 800px)
+    width: 100rem
+    margin-right: 10rem
+
+@keyframes slide-right-cards
+  0%
+    opacity: 0
+    transform: translateX(-200rem)
+  100%
+    opacity: 1
+    transform: translateX(0rem)
+
+.contact-information
+  height: 20rem
+  width: 35rem
+  margin-left: 3rem
+  margin-right: 3rem
+  border-radius: 20px
+  background: #1D1D1D
+  backdrop-filter: blur(15px)
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  position: relative
+  transition: border-radius 1s, background .5s
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, .4)
+  opacity: 0
+  animation: slide-right-cards 1s forwards
+  p
+    text-align: center
+    color: #c9c9c9
+    font-size: 2.5rem
+    font-family: Rowdies
+  &:hover
+    background: rgba(255, 205, 105, .5)
+    border-radius: 0px
+
+.another-way-card
+  display: none
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  height: 20rem
+  width: 35rem
+  background: #1D1D1D
+  backdrop-filter: blur(15px)
+  z-index: 3
+  border-radius: 20px
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, .4)
+  cursor: pointer
+  transition: border-radius 1s, background .5s
+  position: relative
+  &:hover
+    background: #005a30
+    border-radius: 0px
+    transition: border-radius 1s, background .5s
+
+.Link-another-styles
+  height: 100%
+  width: 100%
+  position: absolute
+  display: flex
+  align-items: center
+  justify-content: center
+  p
+    color: #C9C9C9
+    font-size: 2.5rem
+    font-family: Rowdies
+    z-index: 1
+  img
+    height: 100%
+    width: 30%
+    border-radius: 25px
+    z-index: 0
+    position: absolute
+    object-fit: cover
+    opacity: .5
+
+.link
+.link:hover
+  color: red
+
+@media (max-width: 1100px)
+  .contact-cards-container
+    height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+  .cards-inner-container
+    margin-top: 20vh
+    height: 20rem
+    flex-direction: row
+    flex-wrap: wrap
+  .cards-innermost-container
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    height: 50rem
+    margin-right: 10rem
+  .contact-information, .another-way-card
+    margin-right: 5rem
+    margin-left: 5rem
+    height: 20rem
+    width: 35rem
+    margin-bottom: 3vh
+    margin-top: 3vh
+  .another-way-card
+    display: flex
+    margin-left: 5%
+    opacity: 0
+    animation: slide-right-cards .9s forwards
+
+@media (max-width: 1100px)
+  .cards-innermost-container
+    margin-right: 1rem
+    width: 160rem
+  .contact-information, .another-way-card
+    margin-right: 2rem
+    margin-left: 2rem
+
+@keyframes slide-down-cards
+  0%
+    transform: translateY(-50rem)
+    opacity: 0
+  100%
+    opacity: 1
+    transform: translateY(0rem)
+
+@media (max-height: 800px) and (min-width: 1100px)
+  .cards-inner-container
+    align-items: center
+  .cards-innermost-container
+    padding: 0px
+    height: 60rem
+    width: 80rem
+
+@media (max-width: 1800px) and (min-width: 1100px) and (max-height: 800px)
+  .cards-innermost-container
+    margin-right: 0rem
+
+@media (max-width: 1700px) and (min-width: 1100px) and (max-height: 800px)
+  .cards-inner-container
+    justify-content: flex-end
+    padding-right: 5rem
+  .cards-innermost-container
+    margin-right: 0rem !important
+
+@media (max-width: 1650px) and (min-width: 1100px) and (max-height: 800px)
+  .cards-inner-container
+    padding-right: 22rem
+  .cards-innermost-container
+    width: 50rem
+  .contact-information
+    margin-right: 1rem
+    margin-left: 1rem
+    height: 18rem
+    width: 31rem
+
+@media (max-width: 1200px) and (min-width: 1100px) and (max-height: 800px)
+  .cards-inner-container
+    padding-right: 15rem 
+  .contact-information
+    margin-right: 1rem
+    margin-left: 1rem
+    height: 18rem
+    width: 27rem
+    p
+      font-size: 2rem

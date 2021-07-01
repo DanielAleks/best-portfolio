@@ -1,0 +1,62 @@
+.view-tech-container, .tech-show, .tech-hide
+  position: relative
+  width: 40rem
+  height: 15rem
+  right: 4rem
+  z-index: 5
+  top: 20rem
+  display: flex
+  align-items: flex-start
+.tech-show
+  animation: slide-right-tech 1.3s forwards
+.tech-hide
+  animation: slide-left-tech .8s
+
+@keyframes slide-right-tech
+  0%
+    transform: translateX(0rem)
+    z-index: 5
+  50%
+    transform: translateX(30rem)
+    z-index: 5
+  100%
+    transform: translateX(30rem)
+    z-index: 11
+
+@keyframes slide-left-tech
+  0%
+    transform: translateX(30rem)
+  100%
+    transform: translateX(0rem)
+
+.popup-tech
+  background: rgba(255, 205, 105, .2)  
+  backdrop-filter: blur(4px)
+  height: 15rem
+  width: 30rem
+  border-top-right-radius: 10px
+  border-bottom-right-radius: 10px
+
+  display: flex
+  justify-content: center
+  flex-direction: row
+  align-items: flex-end
+  z-index: 1
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.4)
+  p
+    font-size: 3rem
+    color: #d1d1d1
+    position: absolute
+    top: 1rem
+
+.tech-icons
+  height: 5rem
+  width: 5rem
+  object-fit: contain
+  margin-left: 5px
+  margin-right: 5px
+  margin-bottom: 2rem
+
+@media (max-width: 1300px)
+  .view-tech-container, .tech-show, .tech-hide
+    right: 9rem

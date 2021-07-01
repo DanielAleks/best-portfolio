@@ -1,0 +1,142 @@
+.ctt-container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 100vh
+  width: 100%
+
+.contact-image-bg
+  height: 100vh
+  width: 100vw
+  position: absolute
+  background: linear-gradient(-70deg, rgba(252, 220, 40, 0) 0%, rgba(252, 220, 40, .1) 50%, rgba(252, 220, 40, .4) 100%)
+
+.contact-form-900px-cancel
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.contact-form
+  background: rgba(255, 255, 255, .2)
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, .4)
+  backdrop-filter: blur(30px)
+  position: absolute
+  bottom: 0px
+  left: 0px
+  height: 100vh
+  width: 80rem
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-left: 7rem
+  padding-right: 7rem
+  z-index: 1
+  @media (max-width: 1500px)
+    width: 60rem
+  @media (max-width: 1250px)
+    width: 50rem
+
+.ctt-width
+  width: 40vw
+
+.header
+  align-self: start
+  text-align: start
+  margin-bottom: 2rem
+  font-family: Rowdies
+  font-weight: bold
+  font-size: 4rem
+  color: #eeeeee
+  opacity: 0
+  animation: slide-up-contact-form 1s forwards
+
+.label
+  font-size: 1.7rem !important
+  color: #b3b3b3 !important
+  font-family: Nunito-Regular !important
+
+@keyframes slide-up-contact-form
+  0%
+    opacity: 0
+    transform: translateY(50rem)
+  100%
+    opacity: 1
+    transform: translateY(0rem)
+
+.help
+  font-size: 1.5rem !important
+
+.is-link
+  height: 4rem !important
+  width: 7.5rem
+  font-size: 1.5rem !important
+  margin-top: 1.5rem
+
+.field
+  opacity: 0
+  animation: slide-up-contact-form 1s forwards
+
+.input
+  font-size: 1.4rem !important
+
+.textarea
+  font-size: 1.4rem !important
+
+.links
+  display: flex
+  justify-content: center
+  opacity: 0
+  animation: slide-up-contact-form 1s forwards
+
+.link-margin
+  margin-top: -4rem
+  margin-left: 3vw
+  margin-right: 3vw
+
+@media (max-width: 1100px)
+  .contact-form-900px-cancel
+    display: none
+  .ctt-container
+
+  .contact-form
+    background: none
+    padding: 0px
+    position: relative
+    height: 50rem
+    display: flex
+    align-items: center
+    justify-content: center
+    background: rgba(255, 255, 255, .2)
+    border-radius: 5px
+  .ctt-width
+    width: 80vw
+
+@media (max-width: 800px)
+  .header
+    font-size: 3rem
+
+@media (min-width: 620px) and (max-width: 800px)
+  .ctt-width
+    width: 60vw
+
+@media (max-width: 620px)
+  .ctt-width
+    width: 80vw
+
+@media (max-height: 800px)
+  .ctt-container
+    flex-direction: row-reverse
+    position: relative
+  .contact-form
+    left: 0px
+    padding-left: 4rem
+    padding-right: 4rem
+    border-radius: 0px
+    height: 100vh
+    margin: 0px
+    top: 0px
+    display: flex
+    justify-content: center
+    align-items: center

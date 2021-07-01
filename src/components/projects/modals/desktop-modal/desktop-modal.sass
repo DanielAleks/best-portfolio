@@ -1,0 +1,71 @@
+.desktop-outer-popup-container
+
+.desktop-popup-container
+  position: absolute
+  right: 0px
+  z-index: 10
+  display: flex
+  flex-direction: column
+  background: rgba(255,255,255,.2)
+  backdrop-filter: blur(4px)
+  height: 100vh
+  box-shadow: 1px 0px 5px 0px rgba(0,0,0,0.4)
+  img
+    height: 23rem
+    margin: 3rem
+    border-radius: 20px
+    width: 40rem
+    object-fit: cover
+    opacity: 0
+    animation: slide-up-desktopimages 1s forwards
+
+@keyframes slide-up-desktopimages
+  0%
+    opacity: 0
+    transform: translateY(100rem)
+  100%
+    opacity: 1
+    transform: translateY(0rem)
+
+.b-view-details, .b-visit-site
+  border: none
+  font-size: 2rem
+  display: flex
+  align-items: center
+  justify-content: center
+  background: rgba(255, 205, 105, .2)  
+  backdrop-filter: blur(4px)
+  cursor: pointer
+  color: #e4e4e4
+  border-top-left-radius: 5px
+  border-bottom-left-radius: 5px
+  box-shadow: 5px 2px 5px -1px rgba(0,0,0,0.4), inset -7px 0px 9px -4px rgba(0,0,0,0.4)
+  p
+    transform: rotate(-90deg)
+    position: absolute
+.b-view-details
+  height: 20rem
+  width: 7rem
+  margin-bottom: 1rem
+  position: relative
+  p
+    position: absolute
+    width: 20rem
+.b-visit-site
+  position: absolute
+  right: 46rem
+  bottom: 35rem
+  height: 12rem
+  width: 7rem
+  z-index: 9
+  p
+    width: 10rem
+
+@media (max-width: 1300px)
+  .desktop-popup-container
+    img
+      height: 18rem
+      margin: 3rem
+      width: 32rem
+  .b-visit-site
+    right: 39.5rem

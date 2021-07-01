@@ -1,0 +1,63 @@
+.details-container, .details-show, .details-hide
+  height: 30rem
+  width: 57rem
+  position: absolute
+  bottom: 10rem
+  right: -4rem
+  display: flex
+  align-items: flex-end
+  overflow: hidden
+  z-index: 8
+.details-show
+  animation: slide-left-details .7s forwards
+.details-hide
+  animation: slide-right-details .7s forwards
+
+@keyframes slide-left-details
+  0%
+    transform: translateX(0rem)
+  100%
+    transform: translateX(-45rem)
+@keyframes slide-right-details
+  0%
+    transform: translateX(-45rem)
+  100%
+    transform: translateX(0rem)
+
+.popup-details
+  height: 100%
+  width: 50rem
+  background: rgba(255, 205, 105, .2)  
+  backdrop-filter: blur(4px)
+  z-index: 1
+  display: flex
+  justify-content: center
+  flex-direction: column
+  align-items: center
+  border-radius: 10px
+  border-top-right-radius: 0px
+  border-bottom-right-radius: 0px
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.4)
+  img
+    position: absolute
+    object-fit: cover
+    z-index: -1
+    opacity: .1
+    filter: saturate(0)
+  h1
+    font-size: 4rem
+    color: #e4e4e4
+    margin-bottom: 2rem
+  p
+    width: 80%
+    font-size: 1.8rem
+    color: #a7a7a7
+
+@media (max-width: 1300px)
+  .details-container, .details-show, .details-hide
+    width: 52rem
+    right: -5.5rem
+  .popup-details
+    width: 45rem
+    p
+      width: 90%

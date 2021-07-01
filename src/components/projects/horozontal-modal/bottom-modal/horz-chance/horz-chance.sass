@@ -1,0 +1,107 @@
+  
+.h-view-tech-container, .h-tech-show, .h-tech-hide
+  position: absolute
+  width: 30rem
+  height: 40rem
+  left: 7rem
+  z-index: -1
+  top: -9rem
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+.h-tech-show
+  animation: slide-up-chance .7s forwards
+.h-tech-hide
+  animation: slide-down-chance .7s
+
+@keyframes slide-up-chance
+  0%
+    transform: translateY(0rem)
+  100%
+    transform: translateY(-23.5rem)
+@keyframes slide-down-chance
+  0%
+    transform: translateY(-23.5rem)
+  100%
+    transform: translateY(0rem)
+
+.h-popup-tech
+  background: rgba(255, 205, 105, .2)
+  backdrop-filter: blur(10px)
+  height: 23.5rem
+  width: 30rem
+  border-top-right-radius: 10px
+  border-top-left-radius: 10px
+  display: flex
+  justify-content: center
+  flex-direction: row
+  align-items: flex-start
+  z-index: 1
+  position: relative
+  box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.4)
+  p
+    font-size: 3rem
+    color: #d1d1d1
+    position: absolute
+    top: 1rem
+  a
+    z-index: 100
+    button
+      border-radius: 5px
+      height: 5rem
+      position: absolute
+      box-shadow: 2px 2px 7px rgba(0, 0, 0, .4)
+      right: 4rem
+      bottom: 2rem
+      background: #A02727
+      font-family: Rowdies
+      font-size: 1.8rem
+      width: 12rem
+      color: #1d1d1d
+      cursor: pointer
+
+.h-tech-bg
+  position: absolute
+  height: 100%
+  width: 100%
+  object-fit: cover
+  z-index: -1
+  opacity: .3
+  filter: saturate(0)
+
+.h-tech-icons
+  height: 5rem
+  width: 5rem
+  object-fit: contain
+  margin-left: .5rem
+  margin-right: .5rem
+  margin-top: 7rem
+
+@media (max-height: 850px)
+  .h-tech-show
+    animation: slide-high-chance 1s forwards
+  .h-tech-hide
+    animation: slide-low-chance 1s
+  .h-popup-tech
+    border-radius: 10px
+@keyframes slide-high-chance
+  0%
+    transform: translateY(0rem)
+    z-index: -2
+  50%
+    transform: translateY(50rem)
+    z-index: -2
+  100%
+    transform: translateY(-2rem)
+    z-index: 11
+
+@keyframes slide-low-chance
+  0%
+    transform: translateY(-2rem)
+    z-index: 11
+  50%
+    transform: translateY(50rem)
+    z-index: -1
+  100%
+    transform: translateY(0rem)
+    z-index: -1

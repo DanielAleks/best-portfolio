@@ -1,0 +1,107 @@
+.h-details-container, .h-details-show, .h-details-hide
+  height: 30rem
+  width: 50rem
+  position: absolute
+  bottom: 10rem
+  right: 4rem
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  @media (max-width: 550px)
+    right: 0rem
+
+.h-details-show
+  animation: slide-up-details .7s forwards
+.h-details-hide
+  animation: slide-down-details .7s forwards
+
+@keyframes slide-up-details
+  0%
+    transform: translateY(0rem)
+  100%
+    transform: translateY(-30rem)
+@keyframes slide-down-details
+  0%
+    transform: translateY(-30rem)
+  100%
+    transform: translateY(0rem)
+
+.h-popup-details
+  height: 100%
+  width: 50rem
+  background: rgba(255, 205, 105, .2)  
+  backdrop-filter: blur(10px)
+  z-index: -1
+  display: flex
+  justify-content: flex-start
+  flex-direction: column
+  align-items: center
+  border-top-right-radius: 10px
+  border-top-left-radius: 10px
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.4)
+  img
+    height: 80%
+    position: absolute
+    object-fit: cover
+    z-index: -1
+    opacity: .1
+    filter: saturate(0)
+  a
+    display: flex
+    align-self: flex-end
+    align-items: center
+    justify-content: center
+    button
+      position: absolute
+      right: 0rem
+      bottom: 2rem
+      border: none
+      background: #A02727
+      box-shadow: 2px 2px 7px rgba(0, 0, 0, .4)
+      height: 5rem
+      border-radius: 5px
+      width: 12rem
+      margin-right: 6rem
+      font-size: 1.8rem
+      color: #1d1d1d
+      font-family: Rowdies
+      cursor: pointer
+  h1
+    margin-top: 1rem
+    font-size: 4rem
+    color: #e4e4e4
+    margin-bottom: 2rem
+  p
+    width: 80%
+    font-size: 1.8rem
+    color: #a7a7a7
+
+@media (max-height: 850px)
+  .h-details-show
+    animation: slide-high-details 1s forwards
+  .h-details-hide
+    animation: slide-low-details 1s forwards 
+  .h-popup-details
+    border-radius: 10px
+
+@keyframes slide-high-details
+  0%
+    transform: translateY(0rem)
+    z-index: -2
+  50%
+    transform: translateY(100rem)
+    z-index: -2
+  100%
+    transform: translateY(-2rem)
+    z-index: 11
+
+@keyframes slide-low-details
+  0%
+    transform: translateY(-2rem)
+    z-index: 11
+    
+  50%
+    transform: translateY(100rem)
+  100%
+    transform: translateY(0rem)
+    z-index: -2

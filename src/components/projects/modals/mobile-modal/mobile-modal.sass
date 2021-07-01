@@ -1,0 +1,76 @@
+.mobile-outer-popup-container
+  position: absolute
+  left: 0rem
+
+.mobile-popup-container
+  position: absolute
+  display: flex
+  flex-direction: column
+  background: rgba(255, 255, 255, .2)
+  backdrop-filter: blur(4px)
+  height: 100vh
+  z-index: 7
+  box-shadow: 4px 0px 9px -4px rgba(0,0,0,0.4)
+
+.mobile-popup-image
+  height: 40rem
+  width: 20rem
+  margin: 3rem
+  border-radius: 20px
+  object-fit: cover
+  opacity: 0
+  animation: slide-down-mobileimages 1s forwards
+
+@keyframes slide-down-mobileimages
+  0%
+    opacity: 0
+    transform: translateY(-200rem)
+  100%
+    opacity: 1
+    transform: translateY(0rem)
+
+.b-view-tech, .b-view-repo
+  border: none
+  font-size: 2rem
+  width: 7rem
+  display: flex
+  align-items: center
+  justify-content: center
+  border-bottom-right-radius: 5px
+  border-top-right-radius: 5px
+  cursor: pointer
+  color: #e4e4e4
+  background: rgba(255, 205, 105, .2)
+  backdrop-filter: blur(4px)
+  box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.4), inset 7px 0px 9px -4px rgba(0,0,0,0.4)
+  p
+    transform: rotate(90deg)
+
+.b-view-tech
+  margin-top: 2rem
+  height: 10rem
+  position: relative
+  z-index: 6
+  img
+    height: 100%
+    width: 70%
+  p
+
+.b-view-repo
+  height: 13rem
+  position: absolute
+  left: 26rem
+  top: 36rem
+  img
+    height: 60%
+    width: 100%
+  p
+    position: absolute
+    width: 10rem
+
+@media (max-width: 1300px)
+  .mobile-popup-image
+    height: 30rem
+    width: 15rem
+  .b-view-repo
+    left: 21rem
