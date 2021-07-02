@@ -5,12 +5,30 @@ import Modals from './modals/Modals'
 import HorozontalModal from './horozontal-modal/HorozontalModal'
 import { useWindowSize } from '../../App'
 import ReactGA from 'react-ga'
+import ReactLogo from '../../assets/images/icons/react-Logo.png'
+import AngularLogo from '../../assets/images/icons/angular.png'
+import VueLogo from '../../assets/images/icons/vue.png'
+import GA from '../../assets/images/icons/gaLogo.png'
+import Github from '../../assets/images/icons/github.png'
+import Redux from '../../assets/images/icons/redux.png'
+import Sass from '../../assets/images/icons/sassLogo.png'
+import TS from '../../assets/images/icons/typescript.png'
+import Yarn from '../../assets/images/icons/yarn-logo.png'
+import BootStrap from '../../assets/images/icons/bootstrap.png'
+import '../technologies/technologies.sass'
 
-function Projects({images, accessor, setAccessor, active, setActive}) {
+function Projects({ images, accessor, setAccessor, active, setActive }) {
   const size = useWindowSize()
   const [isAnimated, setIsAnimated] = useState(false)
   const [tech, setTech] = useState(false)
   const [details, setDetails] = useState(false)
+
+  const leftIcons = [
+    ReactLogo, AngularLogo, VueLogo, Github, TS
+  ]
+  const rightIcons = [
+    , Redux, Sass, Yarn, BootStrap, GA
+  ]
 
   const openModal = (id): any => {
     setActive(!active)
@@ -27,30 +45,10 @@ function Projects({images, accessor, setAccessor, active, setActive}) {
     }
   }
 
-  const weatherApp = () => {
-    ReactGA.event({
-      category: 'weatherApp',
-      action: 'opened weatherApp modal'
-    });
-  }
-  const wildlifeApp = () => {
-    ReactGA.event({
-      category: 'wildlifeApp',
-      action: 'opened meditation modal'
-    });
-  }
-  const blueberryApp = () => {
-    ReactGA.event({
-      category: 'blueberryApp',
-      action: 'opened blueberryApp modal'
-    });
-  }
-  const meditationApp = () => {
-    ReactGA.event({
-      category: 'meditationApp',
-      action: 'opened meditationApp modal'
-    });
-  }
+  const weatherApp = () => { ReactGA.event({ category: 'weatherApp', action: 'opened weatherApp modal' }); }
+  const wildlifeApp = () => { ReactGA.event({ category: 'wildlifeApp', action: 'opened meditation modal' }); }
+  const blueberryApp = () => { ReactGA.event({ category: 'blueberryApp', action: 'opened blueberryApp modal' }); }
+  const meditationApp = () => { ReactGA.event({ category: 'meditationApp', action: 'opened meditationApp modal' }); }
 
 
   const imageAnimationHandler = (id) => {
@@ -83,21 +81,46 @@ function Projects({images, accessor, setAccessor, active, setActive}) {
 
   return (
     <div className="project-container">
-      <div className='project-rock-bg' />
-
-      <Scrollbars style={{ width: '100%', height: '100%' }}>
-        <div className='main-images'>
-          <div className='inner-images-container'>
-            {images.map((item, id) =>
-              <div onClick={() => openModal(id)}>
-                <img
-                  style={{ animationDelay: `${imageAnimationHandler(id)}s` }}
-                  src={item.main} />
-              </div>
-            )}
-          </div>
+      <div className="project-info-container">
+        <div className='project-left-icons'>
+          {leftIcons.map((item) =>
+            <div className='icon-container'>
+              <img className="icon-image" src={item} />
+            </div>
+          )}
         </div>
-      </Scrollbars>
+
+        <div className='project-text-container'>
+          <h1>Projects</h1>
+          <p>Completed and published projects that you can check out right now.</p>
+          <p>A few of the used technologies and languages that were used.</p>
+        </div>
+
+        <div className='project-right-icons'>
+          {rightIcons.map((item) =>
+            <div>
+              <img src={item} />
+            </div>
+          )}
+        </div>
+      </div>
+
+
+      <div className='main-images'>
+        {images.map((item, id) =>
+          <div onClick={() => openModal(id)}>
+            <img
+              style={{ animationDelay: `${imageAnimationHandler(id)}s` }}
+              src={item.main} />
+          </div>
+        )}
+      </div>
+
+
+
+
+
+
 
       {active &&
         <Modals

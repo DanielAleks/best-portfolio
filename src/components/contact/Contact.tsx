@@ -6,8 +6,6 @@ import './contact.sass'
 function Contact() {
   return (
     <div id='contact' className='ctt-container'>
-      <div className='contact-image-bg' />
-
       <ContactCards />
 
       <div className='contact-form-900px-cancel'>
