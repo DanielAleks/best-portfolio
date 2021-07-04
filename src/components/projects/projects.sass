@@ -15,6 +15,7 @@
   align-items: center
   h1
     font-family: Rowdies
+    text-align: center
     font-size: 10rem
     margin-bottom: 2rem
   p
@@ -23,6 +24,11 @@
 .project-text-container
 
 .project-right-icons, .project-left-icons
+  height: 50rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
   div
     height: 10rem
     width: 10rem
@@ -31,14 +37,20 @@
     display: flex
     justify-content: center
     align-items: center
-    margin-left: 4rem
-    margin-right: 4rem
+    margin: 2rem
     z-index: 100
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .4)
     img
       width: 5rem
       height: 5rem
       object-fit: contain
+      
+.project-left-icons
+  margin-right: 8rem
+  flex-wrap: wrap-reverse
+.project-right-icons
+  flex-wrap: wrap
+  margin-left: 8  rem
 
 .main-images
   display: flex
