@@ -45,28 +45,36 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
 
   return (
     <div className="home-container">
-      <div className="info-container">
-        <h1>Creative Development</h1>
-        <p>{miniAbout}</p>
+
+      <div className='top-info-container'>
+        <h1>Home</h1>
+        <p>“There’s no place like home”    - Judy Garland</p>
       </div>
 
-      <div className="slider-container">
-
-        <div className="image-button-container">
-
-          {sliderDisplay.map((item) =>
-            <div className={item.container}>
-              <img
-                className={item.bg}
-                src={item.src}
-              />
-              <img className={item.device} src={item.deviceSrc} />
-            </div>
-          )}
-
+      <div className='home-bottom-container'>
+        <div className="info-container">
+          <h1>Creative Development</h1>
+          <p>{miniAbout}</p>
           <a href="projects">
             <button className="view-project-button">View Projects</button>
           </a>
+        </div>
+
+        <div className="slider-container">
+
+          <div className="image-button-container">
+
+            {sliderDisplay.map((item) =>
+              <div className={item.container}>
+                <img
+                  className={item.bg}
+                  src={item.src}
+                />
+                <img className={item.device} src={item.deviceSrc} />
+              </div>
+            )}
+
+          </div>
         </div>
       </div>
     </div>

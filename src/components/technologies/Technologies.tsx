@@ -38,22 +38,26 @@ function Technologies() {
 
   return (
     <div className='tech-container'>
+      <div className='hi'>
+        <p className="tech-header">Technologies</p>
+      </div>
+
       <div className='green-tech-container' >
         {/* <Scrollbars style={{ width: '100%', height: '100vh' }}> */}
 
-          <div className='tech-content-container'>
-            <p className="tech-header">Technologies</p>
 
-            <div className='inner-green-container'>
-              {iconData.map((item, id) =>
-                <div
-                  style={{ animationDelay: `${id * .05}s` }}
-                  className='icon-container'>
-                  <img className="icon-image" src={item} />
-                </div>
-              )}
-            </div>
+        <div className='tech-content-container'>
+
+          <div className='inner-green-container'>
+            {iconData.map((item, id) =>
+              <div
+                style={{ animationDelay: `${id * .05}s` }}
+                className='icon-container'>
+                <img className="icon-image" src={item} />
+              </div>
+            )}
           </div>
+        </div>
         {/* </Scrollbars>  */}
       </div>
     </div>

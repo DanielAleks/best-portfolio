@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import './navbar.sass'
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { AiFillHome, AiFillPhone } from 'react-icons/ai'
+import { GrTechnology } from 'react-icons/gr'
+import { BsHammer } from 'react-icons/bs'
 import ReactGA from 'react-ga'
 
 function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
@@ -75,10 +78,10 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
   }
 
   const navItems = [
-    { name: 'Home', to: '/' },
-    { name: 'Projects', to: '/projects' },
-    { name: 'Technologies', to: '/tech' },
-    { name: 'Contact', to: '/contact' }
+    { icon: AiFillHome, name: 'Home', to: '/' },
+    { icon: BsHammer, name: 'Projects', to: '/projects' },
+    { icon: GrTechnology, name: 'Technologies', to: '/tech' },
+    { icon: AiFillPhone, name: 'Contact', to: '/contact' }
   ]
 
   return (
@@ -105,7 +108,9 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
                 onClick={() => GaHandler(id)}
                 style={{ animationDelay: `${animationDelayMe(id)}s` }}
                 className={isAnimated ? 'nav-item' : 'nav-item-off'}
-                to={item.to}>{item.name}</Link>
+                to={item.to}>
+                <item.icon style={{color: 'black'}} size={40}/>
+              </Link>
             )}
           </>
         }

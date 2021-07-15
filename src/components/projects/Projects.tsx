@@ -5,16 +5,9 @@ import Modals from './modals/Modals'
 import HorozontalModal from './horozontal-modal/HorozontalModal'
 import { useWindowSize } from '../../App'
 import ReactGA from 'react-ga'
-import ReactLogo from '../../assets/images/icons/react-Logo.png'
-import AngularLogo from '../../assets/images/icons/angular.png'
-import VueLogo from '../../assets/images/icons/vue.png'
-import GA from '../../assets/images/icons/gaLogo.png'
-import Github from '../../assets/images/icons/github.png'
-import Redux from '../../assets/images/icons/redux.png'
-import Sass from '../../assets/images/icons/sassLogo.png'
-import TS from '../../assets/images/icons/typescript.png'
-import Yarn from '../../assets/images/icons/yarn-logo.png'
-import BootStrap from '../../assets/images/icons/bootstrap.png'
+import BBH from '../../assets/images/blueberries/desktop/homeD.png'
+import Desktop from '../../assets/images/portfolio/desktop.png'
+import Mobile from '../../assets/images/portfolio/mobilePng.png'
 import '../technologies/technologies.sass'
 
 function Projects({ images, accessor, setAccessor, active, setActive }) {
@@ -22,13 +15,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
   const [isAnimated, setIsAnimated] = useState(false)
   const [tech, setTech] = useState(false)
   const [details, setDetails] = useState(false)
-
-  const leftIcons = [
-    ReactLogo, AngularLogo, VueLogo, Github, TS
-  ]
-  const rightIcons = [
-    , Redux, Sass, Yarn, BootStrap, GA
-  ]
 
   const openModal = (id): any => {
     setActive(!active)
@@ -81,40 +67,50 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
 
   return (
     <div className="project-container">
-      <div className="project-info-container">
-        <div className='project-left-icons'>
-          {leftIcons.map((item) =>
-            <div className='icon-container'>
-              <img className="icon-image" src={item} />
-            </div>
-          )}
-        </div>
 
+      <div className="project-info-container">
         <div className='project-text-container'>
           <h1>Projects</h1>
           <p>Completed and published projects that you can check out right now.</p>
-          <p>A few of the used technologies and languages that were used.</p>
-        </div>
-
-        <div className='project-right-icons'>
-          {rightIcons.map((item) =>
-            <div>
-              <img src={item} />
-            </div>
-          )}
         </div>
       </div>
 
+      <div className='main-image-container'>
 
-      <div className='main-images'>
         {images.map((item, id) =>
+          <div className='pairing-image-container'>
+            <div className="m-image-container">
+              <img onClick={() => openModal(id)} className='m-device-img' src={Mobile} />
+              <img onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
+            </div>
+            <div className="d-image-container">
+              <img onClick={() => openModal(id)} className='d-device-img' src={Desktop} />
+              <img onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
+            </div>
+          </div>
+        )}
+
+      </div>
+
+
+
+      {/* {images.map((item, id) =>
           <div onClick={() => openModal(id)}>
             <img
               style={{ animationDelay: `${imageAnimationHandler(id)}s` }}
               src={item.main} />
           </div>
         )}
-      </div>
+        {images.map((item) =>
+          <div className={item.container}>
+            <img
+              className={item.bg}
+              src={item.src}
+            />
+            <img className={item.device} src={item.deviceSrc} />
+          </div>
+        )} */}
+
 
 
 
@@ -134,7 +130,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
           images={images}
         />
       }
-
       {active &&
         <HorozontalModal
           closeModalHandler={closeModalHandler}
