@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 function Home({ images, accessor, setAccessor, active, setActive }) {
   const miniAbout =
-    "Hello I’m Daniel, a Front-end Developer that can code in any Framework and create awesome designs. If you're looking for someone that can write code in the front-end and still contribute with creative thinking and designing, I’m your guy. Check out “Projects” to see more of what I’ve created.";
+    "Hello. I’m Daniel, I create thoughtfully designed masterpieces in the front-end. If you're looking for someone that can communicate in code and still contribute with creative thinking and designing, I’m your guy. Check out “Projects” to see some of my creations.";
 
   useEffect(() => {
     let accessorHandler = setInterval(
@@ -48,22 +48,21 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
 
       <div className='top-info-container'>
         <h1>Home</h1>
-        <p>“There’s no place like home”    - Judy Garland</p>
+        <p>“There’s no place like home” - Judy Garland</p>
       </div>
 
       <div className='home-bottom-container'>
         <div className="info-container">
           <h1>Creative Development</h1>
           <p>{miniAbout}</p>
-          <a href="projects">
-            <button className="view-project-button">View Projects</button>
+          <a className='view-project-button' href="projects">
+            <button>View Projects</button>
           </a>
         </div>
 
         <div className="slider-container">
 
-          <div className="image-button-container">
-
+          <div className="home-image-container">
             {sliderDisplay.map((item) =>
               <div className={item.container}>
                 <img
@@ -73,7 +72,6 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
                 <img className={item.device} src={item.deviceSrc} />
               </div>
             )}
-
           </div>
         </div>
       </div>
