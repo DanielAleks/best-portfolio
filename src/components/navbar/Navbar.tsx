@@ -91,14 +91,18 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
       <nav onClick={closeMobileNav} className='nav-container'>
         {isNav &&
           <>
-       
+
             {navItems.map((item, id) =>
               <Link
                 onClick={() => GaHandler(id)}
                 style={{ animationDelay: `${animationDelayMe(id)}s` }}
                 className={isAnimated ? 'nav-item' : 'nav-item-off'}
                 to={item.to}>
-                <item.icon style={{ color: 'black' }} size={40} />
+                {size.width < 900 ?
+                  <p>{item.name}</p>
+                  :
+                  <item.icon style={{ color: 'black' }} size={40} />
+                }
               </Link>
             )}
           </>
