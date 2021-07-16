@@ -15,6 +15,7 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
   const [isAnimated, setIsAnimated] = useState(false)
   const [tech, setTech] = useState(false)
   const [details, setDetails] = useState(false)
+  const [expand, setExpand] = useState(10)
 
   const openModal = (id): any => {
     setActive(!active)
@@ -65,6 +66,15 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
     }, 500)
   }
 
+  const shakeHandler = (id) => {
+    if (expand === id) {
+      return '1s shake'
+    } else if (expand === 10) {
+      return null
+    }
+  }
+
+
   return (
     <div className="project-container">
 
@@ -80,12 +90,30 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
         {images.map((item, id) =>
           <div className='pairing-image-container'>
             <div className="m-image-container">
-              <img onClick={() => openModal(id)} className='m-device-img' src={Mobile} />
-              <img onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
+              <img
+                onMouseOver={() => setExpand(id)}
+                onMouseLeave={() => setExpand(10)}
+                style={{ animation: shakeHandler(id) }}
+                onClick={() => openModal(id)}
+                className='m-device-img' src={Mobile}
+              />
+              <img
+                onMouseOver={() => setExpand(id)}
+                onMouseLeave={() => setExpand(10)}
+                style={{ animation: shakeHandler(id) }}
+                onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
             </div>
             <div className="d-image-container">
-              <img onClick={() => openModal(id)} className='d-device-img' src={Desktop} />
-              <img onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
+              <img
+                onMouseOver={() => setExpand(id)}
+                onMouseLeave={() => setExpand(10)}
+                style={{ animation: shakeHandler(id) }}
+                onClick={() => openModal(id)} className='d-device-img' src={Desktop} />
+              <img
+                onMouseOver={() => setExpand(id)}
+                onMouseLeave={() => setExpand(10)}
+                style={{ animation: shakeHandler(id) }}
+                onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
             </div>
           </div>
         )}
@@ -93,23 +121,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
       </div>
 
 
-
-      {/* {images.map((item, id) =>
-          <div onClick={() => openModal(id)}>
-            <img
-              style={{ animationDelay: `${imageAnimationHandler(id)}s` }}
-              src={item.main} />
-          </div>
-        )}
-        {images.map((item) =>
-          <div className={item.container}>
-            <img
-              className={item.bg}
-              src={item.src}
-            />
-            <img className={item.device} src={item.deviceSrc} />
-          </div>
-        )} */}
 
 
 
