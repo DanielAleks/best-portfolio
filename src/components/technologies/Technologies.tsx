@@ -23,6 +23,8 @@ import Yarn from '../../assets/images/icons/yarn-logo.png'
 import BootStrap from '../../assets/images/icons/bootstrap.png'
 import Netlify from '../../assets/images/icons/netlify.png'
 import { Scrollbars } from 'react-custom-scrollbars';
+import { BsImages } from 'react-icons/bs'
+import { GiLightSabers } from 'react-icons/gi'
 
 function Technologies() {
 
@@ -38,15 +40,16 @@ function Technologies() {
 
   return (
     <div className='tech-container'>
-      <div className='hi'>
+      <div className='tech-info-container'>
         <p className="tech-header">Technologies</p>
       </div>
 
+
       <div className='green-tech-container' >
-        {/* <Scrollbars style={{ width: '100%', height: '100vh' }}> */}
+      {/* <Scrollbars style={{ width: '100%', height: '100vh' }}> */}
 
 
-        <div className='tech-content-container'>
+      <div className='tech-content-container'>
 
           <div className='inner-green-container'>
             {iconData.map((item, id) =>
@@ -58,7 +61,7 @@ function Technologies() {
             )}
           </div>
         </div>
-        {/* </Scrollbars>  */}
+      {/* </Scrollbars>  */}
       </div>
     </div>
   )

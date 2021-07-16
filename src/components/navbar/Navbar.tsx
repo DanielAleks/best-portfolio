@@ -11,28 +11,16 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
 
 
   const onAboutHandler = () => {
-    ReactGA.event({
-      category: 'Route About',
-      action: 'went to route /about'
-    });
+    ReactGA.event({ category: 'Route About', action: 'went to route /about' });
   }
   const onProjectsHandler = () => {
-    ReactGA.event({
-      category: 'Route Projects',
-      action: 'went to route /projects'
-    });
+    ReactGA.event({ category: 'Route Projects', action: 'went to route /projects' });
   }
   const onTechHandler = () => {
-    ReactGA.event({
-      category: 'Route Technology',
-      action: 'went to route /tech'
-    });
+    ReactGA.event({ category: 'Route Technology', action: 'went to route /tech' });
   }
   const onContactHandler = () => {
-    ReactGA.event({
-      category: 'Route Contact',
-      action: 'went to route /contact'
-    });
+    ReactGA.event({ category: 'Route Contact', action: 'went to route /contact' });
   }
 
   const GaHandler = (id) => {
@@ -103,13 +91,14 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
       <nav onClick={closeMobileNav} className='nav-container'>
         {isNav &&
           <>
+       
             {navItems.map((item, id) =>
               <Link
                 onClick={() => GaHandler(id)}
                 style={{ animationDelay: `${animationDelayMe(id)}s` }}
                 className={isAnimated ? 'nav-item' : 'nav-item-off'}
                 to={item.to}>
-                <item.icon style={{color: 'black'}} size={40}/>
+                <item.icon style={{ color: 'black' }} size={40} />
               </Link>
             )}
           </>
