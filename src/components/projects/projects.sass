@@ -15,11 +15,15 @@
   justify-content: center
   align-items: center
   h1
+    animation: slide-down 1s forwards
+    opacity: 0
     font-family: Rowdies
     text-align: center
     font-size: 10rem
     margin-bottom: 1rem
   p
+    animation: slide-down .8s forwards
+    opacity: 0
     margin: .5rem
 
 .main-image-container
@@ -30,6 +34,7 @@
   column-gap: 10rem
   height: 100%
   margin-right: 10rem
+  padding-top: 5rem
   @media (max-width: 1300px)
     column-gap: 0rem
 
@@ -37,6 +42,8 @@
   position: relative
   display: flex
   justify-content: center
+  height: 25rem
+  width: 40rem
 
 .d-image-container
   align-self: center
@@ -46,34 +53,32 @@
   display: flex
   justify-content: center
   position: relative
-.d-bg-img, .d-device-img
-  position: absolute
 .d-bg-img
   top: 11.5px
   height: 63%
   width: 92.5%
+  position: absolute
 .d-device-img
   height: 100%
   width: 100%
 
 .m-image-container
-  top: 8rem
   z-index: 1
-  right: -8rem
   height: 25rem
   width: 10rem
   display: flex
+  right: -7rem
+  bottom: -2rem
   justify-content: center
   align-items: center
   position: relative
-.m-bg-img, .m-device-img
-  position: absolute
 .m-device-img
   height: 100%
   object-fit: contain
   width: 100%
   z-index: 1
 .m-bg-img
+  position: absolute
   top: 3rem
   height: 77.5%
   border-radius: 10px
@@ -87,3 +92,6 @@
     display: none
   .main-image-container
     grid-template-columns: 1fr
+    margin-right: 5rem
+  .pairing-image-container
+    margin-top: 5rem

@@ -26,7 +26,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { BsImages } from 'react-icons/bs'
 import { GiLightSabers } from 'react-icons/gi'
 
-function Technologies({size}) {
+function Technologies({ size }) {
 
   const iconData = [
     ReactLogo, AngularLogo, VueLogo, Github, TS, Redux, Sass, BootStrap, Figma, Bulma, Yarn,
@@ -38,17 +38,8 @@ function Technologies({size}) {
     'Javascript', 'Npm', 'Styled-Components', 'Tailwind'
   ]
 
-  return (
-    <div className='tech-container'>
-      <div className='tech-info-container'>
-        <h1>Technologies</h1>
-        <p>Frameworks and Technologies that were used in previous work.</p>
-      </div>
-
-
-{size.width > 900 ?
-
-
+  const IconComponent = () => {
+    return (
       <div className='icon-outer-container'>
         {iconData.map((item, id) =>
           <div
@@ -58,19 +49,23 @@ function Technologies({size}) {
           </div>
         )}
       </div>
-:
-      <Scrollbars className="mobile-scrollbar">
-        <div className='icon-outer-container'>
-          {iconData.map((item, id) =>
-            <div
-              style={{ animationDelay: `${id * .05}s` }}
-              className='icon-container'>
-              <img className="icon-image" src={item} />
-            </div>
-          )}
-        </div>
-      </Scrollbars>
-}
+    )
+  }
+
+  return (
+    <div className='tech-container'>
+      <div className='tech-info-container'>
+        <h1>Technologies</h1>
+        <p>Frameworks and Technologies that were used in previous work.</p>
+      </div>
+
+      {size.width > 900 ?
+        <IconComponent />
+        :
+        <Scrollbars className="mobile-scrollbar">
+          <IconComponent />
+        </Scrollbars>
+      }
 
     </div>
   )

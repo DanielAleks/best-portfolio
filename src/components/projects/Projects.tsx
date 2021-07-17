@@ -77,7 +77,36 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
   const enter = (id) => setExpand(id)
   const leave = () => setExpand(10)
 
-  
+
+  const DeviceComponent = ({ source, style, id }) => {
+    return (
+      <img
+        onMouseOver={() => enter(id)}
+        onMouseLeave={leave}
+        style={{ animation: `${shakeHandler(id)}` }}
+        onClick={() => openModal(id)} className={style} src={source} />
+    )
+  }
+
+  const ProjectImages = () => {
+    return (
+      <div className='main-image-container'>
+        {images.map((item, id) =>
+          <div className='pairing-image-container'>
+            <div style={{animationDelay: `${id * .2}s`}} className="m-image-container">
+              <DeviceComponent id={id} source={Mobile} style={'m-device-img'} />
+              <DeviceComponent id={id} source={item.mobile[0]} style={'m-bg-img'} />
+            </div>
+            <div style={{animationDelay: `${id * .1}s`}} className="d-image-container">
+              <DeviceComponent id={id} source={Desktop} style={'d-desktop-img'} />
+              <DeviceComponent id={id} source={item.desktop[0]} style={'d-bg-img'} />
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="project-container">
 
@@ -86,41 +115,13 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
         <p>Completed and published projects that you can check out right now.</p>
       </div>
 
-      <div className='main-image-container'>
-
-        {images.map((item, id) =>
-          <div className='pairing-image-container'>
-            <div className="m-image-container">
-              <img
-                onMouseOver={() => enter(id)}
-                onMouseLeave={leave}
-                style={{ animation: shakeHandler(id) }}
-                onClick={() => openModal(id)}
-                className='m-device-img' src={Mobile}
-              />
-              <img
-                onMouseOver={() => enter(id)}
-                onMouseLeave={leave}
-                style={{ animation: shakeHandler(id) }}
-                onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
-            </div>
-            <div className="d-image-container">
-              <img
-                onMouseOver={() => enter(id)}
-                onMouseLeave={leave}
-                style={{ animation: shakeHandler(id) }}
-                onClick={() => openModal(id)} className='d-device-img' src={Desktop} />
-              <img
-                onMouseOver={() => enter(id)}
-                onMouseLeave={leave}
-                style={{ animation: shakeHandler(id) }}
-                onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
-            </div>
-          </div>
-        )}
-
-      </div>
-
+      {size.width < 900 ?
+        <Scrollbars style={{ width: '42rem', height: '100%' }}>
+          <ProjectImages />
+        </Scrollbars>
+        :
+        <ProjectImages />
+      }
 
 
 
