@@ -3,12 +3,12 @@ import './navbar.sass'
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiFillHome, AiFillPhone } from 'react-icons/ai'
-import { GrTechnology } from 'react-icons/gr'
+import { GoChecklist } from 'react-icons/go'
 import { BsHammer } from 'react-icons/bs'
 import ReactGA from 'react-ga'
 
 function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
-
+  const [navRoute, setNavRoute] = useState(0)
 
   const onAboutHandler = () => {
     ReactGA.event({ category: 'Route About', action: 'went to route /about' });
@@ -24,6 +24,7 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
   }
 
   const GaHandler = (id) => {
+    setNavRoute(id)
     if (id === 1) {
       onAboutHandler()
     } else if (id === 2) {
@@ -68,7 +69,7 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
   const navItems = [
     { icon: AiFillHome, name: 'Home', to: '/' },
     { icon: BsHammer, name: 'Projects', to: '/projects' },
-    { icon: GrTechnology, name: 'Technologies', to: '/tech' },
+    { icon: GoChecklist, name: 'Technologies', to: '/tech' },
     { icon: AiFillPhone, name: 'Contact', to: '/contact' }
   ]
 
@@ -101,7 +102,7 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
                 {size.width < 900 ?
                   <p>{item.name}</p>
                   :
-                  <item.icon style={{ color: 'black' }} size={40} />
+                  <item.icon style={{ color: navRoute === id ? '#669fe4' : '#fff', transition: 'color 1s' }} size={40} />
                 }
               </Link>
             )}

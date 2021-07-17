@@ -68,21 +68,22 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
 
   const shakeHandler = (id) => {
     if (expand === id) {
-      return '1s shake'
+      return '1.2s shake 5'
     } else if (expand === 10) {
       return null
     }
   }
 
+  const enter = (id) => setExpand(id)
+  const leave = () => setExpand(10)
 
+  
   return (
     <div className="project-container">
 
       <div className="project-info-container">
-        <div className='project-text-container'>
-          <h1>Projects</h1>
-          <p>Completed and published projects that you can check out right now.</p>
-        </div>
+        <h1>Projects</h1>
+        <p>Completed and published projects that you can check out right now.</p>
       </div>
 
       <div className='main-image-container'>
@@ -91,27 +92,27 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
           <div className='pairing-image-container'>
             <div className="m-image-container">
               <img
-                onMouseOver={() => setExpand(id)}
-                onMouseLeave={() => setExpand(10)}
+                onMouseOver={() => enter(id)}
+                onMouseLeave={leave}
                 style={{ animation: shakeHandler(id) }}
                 onClick={() => openModal(id)}
                 className='m-device-img' src={Mobile}
               />
               <img
-                onMouseOver={() => setExpand(id)}
-                onMouseLeave={() => setExpand(10)}
+                onMouseOver={() => enter(id)}
+                onMouseLeave={leave}
                 style={{ animation: shakeHandler(id) }}
                 onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
             </div>
             <div className="d-image-container">
               <img
-                onMouseOver={() => setExpand(id)}
-                onMouseLeave={() => setExpand(10)}
+                onMouseOver={() => enter(id)}
+                onMouseLeave={leave}
                 style={{ animation: shakeHandler(id) }}
                 onClick={() => openModal(id)} className='d-device-img' src={Desktop} />
               <img
-                onMouseOver={() => setExpand(id)}
-                onMouseLeave={() => setExpand(10)}
+                onMouseOver={() => enter(id)}
+                onMouseLeave={leave}
                 style={{ animation: shakeHandler(id) }}
                 onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
             </div>

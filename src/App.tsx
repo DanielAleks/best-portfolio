@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import './components/animations.sass'
 import "./components/style.sass";
 import Meditation1D from "./assets/images/meditation/desktop/meditation1.jpg";
 import Meditation2D from "./assets/images/meditation/desktop/meditation2.jpg";
