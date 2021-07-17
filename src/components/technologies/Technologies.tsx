@@ -26,7 +26,7 @@ import { Scrollbars } from 'react-custom-scrollbars';
 import { BsImages } from 'react-icons/bs'
 import { GiLightSabers } from 'react-icons/gi'
 
-function Technologies() {
+function Technologies({size}) {
 
   const iconData = [
     ReactLogo, AngularLogo, VueLogo, Github, TS, Redux, Sass, BootStrap, Figma, Bulma, Yarn,
@@ -41,28 +41,37 @@ function Technologies() {
   return (
     <div className='tech-container'>
       <div className='tech-info-container'>
-        <p className="tech-header">Technologies</p>
+        <h1>Technologies</h1>
+        <p>Frameworks and Technologies that were used in previous work.</p>
       </div>
 
 
-      <div className='green-tech-container' >
-      {/* <Scrollbars style={{ width: '100%', height: '100vh' }}> */}
+{size.width > 900 ?
 
 
-      <div className='tech-content-container'>
-
-          <div className='inner-green-container'>
-            {iconData.map((item, id) =>
-              <div
-                style={{ animationDelay: `${id * .05}s` }}
-                className='icon-container'>
-                <img className="icon-image" src={item} />
-              </div>
-            )}
+      <div className='icon-outer-container'>
+        {iconData.map((item, id) =>
+          <div
+            style={{ animationDelay: `${id * .05}s` }}
+            className='icon-container'>
+            <img className="icon-image" src={item} />
           </div>
-        </div>
-      {/* </Scrollbars>  */}
+        )}
       </div>
+:
+      <Scrollbars className="mobile-scrollbar">
+        <div className='icon-outer-container'>
+          {iconData.map((item, id) =>
+            <div
+              style={{ animationDelay: `${id * .05}s` }}
+              className='icon-container'>
+              <img className="icon-image" src={item} />
+            </div>
+          )}
+        </div>
+      </Scrollbars>
+}
+
     </div>
   )
 }

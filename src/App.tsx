@@ -165,7 +165,7 @@ function App() {
             />
           </Route>
           <Route path="/tech">
-            <Technologies />
+            <Technologies size={size} />
           </Route>
           <Route path="/contact">
             <Contact />
