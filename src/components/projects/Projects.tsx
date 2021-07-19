@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Scrollbars } from 'react-custom-scrollbars';
 import './projects.sass'
 import Modals from './modals/Modals'
@@ -15,7 +15,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
   const [isAnimated, setIsAnimated] = useState(false)
   const [tech, setTech] = useState(false)
   const [details, setDetails] = useState(false)
-  const [expand, setExpand] = useState(10)
 
   const openModal = (id): any => {
     setActive(!active)
@@ -37,28 +36,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
   const blueberryApp = () => { ReactGA.event({ category: 'blueberryApp', action: 'opened blueberryApp modal' }); }
   const meditationApp = () => { ReactGA.event({ category: 'meditationApp', action: 'opened meditationApp modal' }); }
 
-
-  const imageAnimationHandler = (id) => {
-    if (size.width > 900) {
-      if (id === 0) {
-      } else if (id === 1) {
-        return .1
-      } else if (id === 2) {
-        return .4
-      } else if (id === 3) {
-        return .3
-      }
-    } else if (id === 0) {
-      return .4
-    } else if (id === 1) {
-      return .3
-    } else if (id === 2) {
-      return .2
-    } else if (id === 3) {
-      return .1
-    }
-  }
-
   const closeModalHandler = () => {
     setIsAnimated(false)
     setTimeout(() => {
@@ -66,40 +43,18 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
     }, 500)
   }
 
-  const shakeHandler = (id) => {
-    if (expand === id) {
-      return '1.2s shake'
-    } else if (expand === 10) {
-      return null
-    }
-  }
-
-  const enter = (id) => setExpand(id)
-  const leave = () => setExpand(10)
-
-
-  const DeviceComponent = ({ source, style, id }) => {
-    return (
-      <img
-        onMouseOver={() => enter(id)}
-        onMouseLeave={leave}
-        style={{ animation: `${shakeHandler(id)}` }}
-        onClick={() => openModal(id)} className={style} src={source} />
-    )
-  }
-
   const ProjectImages = () => {
     return (
       <div className='main-image-container'>
         {images.map((item, id) =>
           <div className='pairing-image-container'>
-            <div style={{animationDelay: `${id * .2}s`}} className="m-image-container">
-              <DeviceComponent id={id} source={Mobile} style={'m-device-img'} />
-              <DeviceComponent id={id} source={item.mobile[0]} style={'m-bg-img'} />
+            <div className="m-image-container">
+              <img onClick={() => openModal(id)} className='m-device-img' src={Mobile} />
+              <img onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
             </div>
-            <div style={{animationDelay: `${id * .1}s`}} className="d-image-container">
-              <DeviceComponent id={id} source={Desktop} style={'d-desktop-img'} />
-              <DeviceComponent id={id} source={item.desktop[0]} style={'d-bg-img'} />
+            <div className="d-image-container">
+              <img onClick={() => openModal(id)} className='d-desktop-img' src={Desktop} />
+              <img onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
             </div>
           </div>
         )}
@@ -122,13 +77,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
         :
         <ProjectImages />
       }
-
-
-
-
-
-
-
 
 
       {active &&
