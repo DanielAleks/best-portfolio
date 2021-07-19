@@ -89,25 +89,20 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
         </div>
       }
 
-      <nav onClick={closeMobileNav} className='nav-container'>
-        {isNav &&
-          <>
-
-            {navItems.map((item, id) =>
-              <Link
-                onClick={() => GaHandler(id)}
-                style={{ animationDelay: `${animationDelayMe(id)}s` }}
-                className={isAnimated ? 'nav-item' : 'nav-item-off'}
-                to={item.to}>
-                {size.width < 900 ?
-                  <p>{item.name}</p>
-                  :
-                  <item.icon style={{ color: navRoute === id ? '#669fe4' : '#fff', transition: 'color 1s' }} size={40} />
-                }
-              </Link>
-            )}
-          </>
-        }
+      <nav onClick={closeMobileNav} style={{ display: isNav ? 'flex' : 'none' }} className='nav-container'>
+        {navItems.map((item, id) =>
+          <Link
+            onClick={() => GaHandler(id)}
+            style={{ animationDelay: `${animationDelayMe(id)}s`, background: navRoute === id ? 'rgba(255, 205, 105, .5)' : '#367ACC' }}
+            className={isAnimated ? 'nav-item' : 'nav-item-off'}
+            to={item.to}>
+            {size.width < 900 ?
+              <p>{item.name}</p>
+              :
+              <item.icon style={{ color: navRoute === id ? '#669fe4' : '#fff', transition: 'color 1s' }} size={40} />
+            }
+          </Link>
+        )}
       </nav>
     </>
   )

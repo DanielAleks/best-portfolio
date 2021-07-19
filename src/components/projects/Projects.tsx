@@ -68,7 +68,7 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
 
   const shakeHandler = (id) => {
     if (expand === id) {
-      return '1.2s shake 5'
+      return '1.2s shake'
     } else if (expand === 10) {
       return null
     }

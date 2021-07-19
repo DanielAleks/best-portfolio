@@ -1,8 +1,6 @@
 import "./home.sass";
-import Desktop from "../../assets/images/portfolio/desktop.png";
-import Mobile from "../../assets/images/portfolio/mobilePng.png";
-import DesktopBg from "../../assets/images/blueberries/desktop/homeD.png";
 import { useEffect } from "react";
+import HomeSlider from "./home-slider/HomeSlider";
 
 function Home({ images, accessor, setAccessor, active, setActive }) {
   const miniAbout =
@@ -26,26 +24,8 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
   //   setActive(true);
   // };
 
-  const sliderDisplay = [
-    {
-      container: 'mobileHome-images-container',
-      bg: 'mobileHome-image-bg',
-      device: 'mobileHome-image',
-      deviceSrc: Mobile,
-      src: images[accessor].mobile[0],
-    },
-    {
-      container: 'desktopHome-images-container',
-      bg: 'desktopHome-image-bg',
-      device: 'desktopHome-image',
-      deviceSrc: Desktop,
-      src: images[accessor].desktop[0],
-    },
-  ]
-
   return (
     <div className="home-container">
-
       <div className='top-info-container'>
         <h1>Home</h1>
         <p>“There’s no place like home” - Judy Garland</p>
@@ -60,20 +40,7 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
           </a>
         </div>
 
-        <div className="slider-container">
-
-          <div className="home-image-container">
-            {sliderDisplay.map((item) =>
-              <div className={item.container}>
-                <img
-                  className={item.bg}
-                  src={item.src}
-                />
-                <img className={item.device} src={item.deviceSrc} />
-              </div>
-            )}
-          </div>
-        </div>
+        <HomeSlider images={images} accessor={accessor} />
       </div>
     </div>
   );

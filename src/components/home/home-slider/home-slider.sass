@@ -1,0 +1,136 @@
+.slider-container
+  width: 50%
+  padding-left: 10rem
+  background-size: cover
+  background-repeat: no-repeat
+  display: flex
+  align-items: center
+  background-position: 50%
+  display: flex
+  align-items: center
+  position: relative
+
+.desktopHome-images-container
+  height: 40rem
+  width: 44rem
+  display: flex
+  justify-content: center
+  align-items: center
+  position: relative
+  opacity: 0
+  animation: slide-left 1s forwards 1.2s
+.desktopHome-image
+  position: absolute
+  height: 100%
+  width: 100%
+.desktopHome-image-bg
+  position: absolute
+  top: 1.6rem
+  height: 64%
+  width: 92.5%
+.mobileHome-images-container
+  height: 35rem
+  width: 17rem
+  margin-top: 10rem
+  margin-right: -10rem
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1
+  position: relative
+  opacity: 0
+  animation: slide-left 1s forwards 1s
+.mobileHome-image
+  position: absolute
+  height: 100%
+  width: 100%
+.mobileHome-image-bg
+  position: absolute
+  top: 2.3rem
+  height: 92%
+  width: 95%
+  border-radius: 5px
+
+@media (max-width: 1450px)
+  .mobileHome-images-container
+    height: 32rem
+    width: 15rem
+  .mobileHome-image-bg
+    top: 1.9rem
+  .desktopHome-images-container
+    height: 37rem
+    width: 40rem
+
+@media (max-width: 1250px)
+  .mobileHome-images-container
+    height: 27rem
+    width: 13rem
+    margin-top: 5rem
+  .mobileHome-image-bg
+    top: 1.5rem
+  .desktopHome-images-container
+    height: 30rem
+    width: 32rem
+  .desktopHome-image-bg
+    top: 1.4rem
+  .slider-container
+    padding-left: 5rem
+
+@media (max-width: 1050px)
+  .slider-container
+    padding-left: 7rem
+
+  .mobileHome-images-container
+    height: 21rem
+    width: 10rem
+    margin-right: -8rem
+  .mobileHome-image-bg
+    top: 1.1rem
+  .desktopHome-images-container
+    height: 25rem
+    width: 27rem
+
+@media (max-width: 900px)
+  .slider-container
+    width: 100%
+    position: absolute
+    z-index: 1
+    bottom: 5rem
+    margin-right: 5rem
+    display: flex
+    justify-content: center
+    align-items: flex-end
+  .mobileHome-images-container
+    height: 25rem
+    width: 12rem
+  .desktopHome-images-container
+    height: 30rem
+    width: 35rem
+  .desktopHome-image-bg
+    top: 1.4rem
+  .mobileHome-image-bg
+    top: 1.5rem
+
+@media (max-width: 501px)
+  .mobileHome-images-container
+    height: 20rem
+    width: 10rem
+    margin-right: -7rem
+  .desktopHome-images-container
+    height: 25rem
+    width: 30rem
+
+@media (max-height: 750px)
+  .mobileHome-images-container
+    height: 27rem
+    width: 13rem
+    margin-top: 5rem
+  .mobileHome-image-bg
+    top: 1.5rem
+  .desktopHome-images-container
+    height: 30rem
+    width: 32rem
+
+// @media (max-width: 750px)
+// @media (max-width: 650px)
+// @media (max-width: 530px)
