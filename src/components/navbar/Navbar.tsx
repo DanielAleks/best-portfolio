@@ -93,7 +93,7 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
         {navItems.map((item, id) =>
           <Link
             onClick={() => GaHandler(id)}
-            style={{ animationDelay: `${animationDelayMe(id)}s`, background: navRoute === id ? 'rgba(255, 205, 105, .5)' : '#367ACC' }}
+            style={{ animationDelay: `${animationDelayMe(id)}s`, background: size.width < 900 && navRoute === id ? 'rgba(255, 205, 105, .5)' : '#367ACC' }}
             className={isAnimated ? 'nav-item' : 'nav-item-off'}
             to={item.to}>
             {size.width < 900 ?
