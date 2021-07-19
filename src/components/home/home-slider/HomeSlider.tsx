@@ -17,7 +17,7 @@ function HomeSlider({ images, accessor }) {
     {
       container: 'desktopHome-images-container',
       bg: 'desktopHome-image-bg',
-      device: 'desktopHome-image',
+      device: 'desktopHome-image', 
       deviceSrc: Desktop,
       src: images[accessor].desktop[0],
     },
