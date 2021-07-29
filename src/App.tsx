@@ -124,6 +124,7 @@ function App() {
   const [accessor, setAccessor] = useState(0);
   const [isAnimated, setIsAnimated] = useState(false);
   const [active, setActive] = useState(false);
+  const [navRoute, setNavRoute] = useState(0)
 
   useEffect(() => {
     size.width <= 900 ? setIsNav(false) : setIsNav(true);
@@ -143,6 +144,8 @@ function App() {
           setIsNav={setIsNav}
           isNav={isNav}
           size={size}
+          navRoute={navRoute}
+          setNavRoute={setNavRoute}
         />
 
         <Switch>
@@ -153,6 +156,7 @@ function App() {
               images={images}
               accessor={accessor}
               setAccessor={setAccessor}
+              setNavRoute={setNavRoute}
             />
           </Route>
           <Route path="/projects">

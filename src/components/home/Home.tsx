@@ -1,8 +1,10 @@
 import "./home.sass";
 import { useEffect } from "react";
 import HomeSlider from "./home-slider/HomeSlider";
+import { Link } from "react-router-dom";
+import ReactGA from 'react-ga'
 
-function Home({ images, accessor, setAccessor, active, setActive }) {
+function Home({ images, accessor, setAccessor, active, setActive, setNavRoute }) {
   const miniAbout =
     "Hello. I’m Daniel, I create thoughtfully designed masterpieces in the front-end. If you're looking for someone that can communicate in code and still contribute with creative thinking and designing, I’m your guy. Check out “Projects” to see some of my creations.";
 
@@ -24,6 +26,11 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
   //   setActive(true);
   // };
 
+  const onProjectsHandler = () => {
+    setNavRoute(1)
+    ReactGA.event({ category: 'Route Projects', action: 'went to route /projects' });
+  }
+
   return (
     <div className="home-container">
       <div className='top-info-container'>
@@ -35,9 +42,13 @@ function Home({ images, accessor, setAccessor, active, setActive }) {
         <div className="info-container">
           <h1>Creative Development</h1>
           <p>{miniAbout}</p>
-          <a className='view-project-button' href="projects">
+          <Link
+            onClick={onProjectsHandler}
+            className='view-project-button'
+            to="projects">
             <button>View Projects</button>
-          </a>
+          </Link>
+
         </div>
 
         <HomeSlider images={images} accessor={accessor} />

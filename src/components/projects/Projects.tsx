@@ -43,19 +43,22 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
     }, 500)
   }
 
+  const hello = (cClass, fClass, sClass, device, which, id) => {
+    return (
+      <div className={cClass}>
+        <img onClick={() => openModal(id)} className={fClass} src={device} />
+        <img onClick={() => openModal(id)} className={sClass} src={which} />
+      </div>
+    )
+  }
+
   const ProjectImages = () => {
     return (
       <div className='main-image-container'>
         {images.map((item, id) =>
           <div className='pairing-image-container'>
-            <div className="m-image-container">
-              <img onClick={() => openModal(id)} className='m-device-img' src={Mobile} />
-              <img onClick={() => openModal(id)} className='m-bg-img' src={item.mobile[0]} />
-            </div>
-            <div className="d-image-container">
-              <img onClick={() => openModal(id)} className='d-desktop-img' src={Desktop} />
-              <img onClick={() => openModal(id)} className='d-bg-img' src={item.desktop[0]} />
-            </div>
+            {hello('m-image-container', 'm-device-img', 'm-bg-img', Mobile, item.mobile[0], id)}
+            {hello('d-image-container', 'd-desktop-img', 'd-bg-img', Desktop, item.desktop[0], id)}
           </div>
         )}
       </div>
@@ -77,7 +80,6 @@ function Projects({ images, accessor, setAccessor, active, setActive }) {
         :
         <ProjectImages />
       }
-
 
       {active &&
         <Modals

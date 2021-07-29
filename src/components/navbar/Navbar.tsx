@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './navbar.sass'
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from 'react-icons/gi'
@@ -7,8 +7,7 @@ import { GoChecklist } from 'react-icons/go'
 import { BsHammer } from 'react-icons/bs'
 import ReactGA from 'react-ga'
 
-function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated }) {
-  const [navRoute, setNavRoute] = useState(0)
+function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated, navRoute, setNavRoute }) {
 
   const onAboutHandler = () => {
     ReactGA.event({ category: 'Route About', action: 'went to route /about' });
