@@ -66,7 +66,7 @@ function Navbar({ setIsNav, isNav, size, isAnimated, setIsAnimated, navRoute, se
   }
 
   const navItems = [
-    { icon: AiFillHome, name: 'Home', to: '/' },
+    { icon: AiFillHome, name: 'Home', to: '/home' },
     { icon: BsHammer, name: 'Projects', to: '/projects' },
     { icon: GoChecklist, name: 'Technologies', to: '/tech' },
     { icon: AiFillPhone, name: 'Contact', to: '/contact' }

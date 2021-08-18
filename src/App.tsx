@@ -49,6 +49,7 @@ import Home from "./components/home/Home";
 import Navbar from "./components/navbar/Navbar";
 import AnotherWay from "./components/contact/another-way/AnotherWay";
 import ReactGa from "react-ga";
+import Hired from "./components/hired/Hired";
 
 export function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
@@ -150,6 +151,10 @@ function App() {
 
         <Switch>
           <Route exact path="/">
+            <Hired
+            />
+          </Route>
+          <Route path="/home">
             <Home
               active={active}
               setActive={setActive}
